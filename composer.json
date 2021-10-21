@@ -1,0 +1,30 @@
+{
+    "name": "relictumblockchain/rphpsdk",
+    "description": "A library for PHP that interacts with the relictum blockchain API",
+    "license": "MIT",
+    "type":   "library",
+    "keywords": [
+        "relictum",
+        "relictum-php",
+        "relictum-sdk",
+		"relictumblockchain"
+    ],
+
+    "require": {
+        "php": "^7.3",
+        "guzzlehttp/guzzle": "^7.3"
+    },
+	
+    "autoload": {
+        "psr-4": {
+            "RPHPSDK\\Relictum\\": "src"
+        }
+    },
+
+    "config": {
+        "sort-packages": true
+    },
+
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
