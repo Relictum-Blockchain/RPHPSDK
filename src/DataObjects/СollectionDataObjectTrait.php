@@ -1,13 +1,13 @@
 <?php
 
-namespace RPHPSDK\Relictum\DataObjects;
+namespace Relictum\RPHPSDK\DataObjects;
 
 trait СollectionDataObjectTrait
 {
 	protected $objects = [];
 	protected $position = 0;
 	
-	public function init(\RPHPSDK\Relictum\Creators\DataObjectCreator $creator, array $data, ?string $class = null)
+	public function init(\Relictum\RPHPSDK\Creators\DataObjectCreator $creator, array $data, ?string $class = null)
 	{
         $this->position = 0;
 		

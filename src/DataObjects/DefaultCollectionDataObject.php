@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum\DataObjects;
+namespace Relictum\RPHPSDK\DataObjects;
 
 class DefaultCollectionDataObject implements СollectionDataObjectInterface
 {
@@ -10,7 +10,7 @@ class DefaultCollectionDataObject implements СollectionDataObjectInterface
 	
 	public function __construct(array $data)
 	{
-		$creator = new \RPHPSDK\Relictum\Creators\DefaultDataCreator;
+		$creator = new \Relictum\RPHPSDK\Creators\DefaultDataCreator;
         $this->init($creator, $data);
 		return $this;
 	}

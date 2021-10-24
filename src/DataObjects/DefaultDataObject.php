@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum\DataObjects;
+namespace Relictum\RPHPSDK\DataObjects;
 
 class DefaultDataObject implements DataObjectInterface
 {

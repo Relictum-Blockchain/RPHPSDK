@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum\Helpers;
+namespace Relictum\RPHPSDK\Helpers;
 
 class UserAuthorizationHelper implements AuthorizationHelperInterface
 {

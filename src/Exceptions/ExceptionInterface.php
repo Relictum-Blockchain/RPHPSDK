@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum\Exceptions;
+namespace Relictum\RPHPSDK\Exceptions;
 
 interface ExceptionInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum;
+namespace Relictum\RPHPSDK;
 
 /**
 * A PHP API for interacting with the Relictum
@@ -14,8 +14,8 @@ class Executor
 	protected static $config = [
 		'creators' => [],
 		'classess' => [
-			'account/([0-9]+|[a-zA-Z0-9]{32})' => \RPHPSDK\Relictum\DataObjects\AccountCollectionDataObject::class,
-			'nft/list' => \RPHPSDK\Relictum\DataObjects\NftListCollectionDataObject::class
+			'account/([0-9]+|[a-zA-Z0-9]{32})' => \Relictum\RPHPSDK\DataObjects\AccountCollectionDataObject::class,
+			'nft/list' => \Relictum\RPHPSDK\DataObjects\NftListCollectionDataObject::class
 		],
 	];
 	
@@ -27,11 +27,11 @@ class Executor
 	* @throws NetworkErrorException
 	* @throws NodeRequestException
 	*/
-	public static function execute(Request $request) : \RPHPSDK\Relictum\DataObjects\DataObjectInterface
+	public static function execute(Request $request) : \Relictum\RPHPSDK\DataObjects\DataObjectInterface
 	{		
 		$data = $request->send();
 		if(isset($data['success']) && $data['success'] == 'false') {
-			throw new \RPHPSDK\Relictum\Exceptions\NodeRequestException($data['error']);
+			throw new \Relictum\RPHPSDK\Exceptions\NodeRequestException($data['error']);
 		}
 		$creator = self::findCreator($request);
 		$dataObject = $creator->create($data, self::findClass($request));
@@ -45,7 +45,7 @@ class Executor
 	* @param DataObjectInterface $dataObject
 	* @return Request
 	*/
-	public static function getRequest(\RPHPSDK\Relictum\DataObjects\DataObjectInterface $dataObject) : Request
+	public static function getRequest(\Relictum\RPHPSDK\DataObjects\DataObjectInterface $dataObject) : Request
 	{
 		$request = $dataObject->getRequest();
 		$newRequest = clone $request;
@@ -116,7 +116,7 @@ class Executor
 			$creator = new $className;
 		}
 		else {
-			return new \RPHPSDK\Relictum\Creators\DefaultDataCreator;
+			return new \Relictum\RPHPSDK\Creators\DefaultDataCreator;
 		}
 	}
 	
@@ -142,7 +142,7 @@ class Executor
 			return $className;
 		}
 		else {
-			return \RPHPSDK\Relictum\DataObjects\DefaultDataObject::class;
+			return \Relictum\RPHPSDK\DataObjects\DefaultDataObject::class;
 		}
 	}
 }

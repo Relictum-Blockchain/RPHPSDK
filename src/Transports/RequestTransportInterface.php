@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum\Transports;
+namespace Relictum\RPHPSDK\Transports;
 
 interface RequestTransportInterface
 {

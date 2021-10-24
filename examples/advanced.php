@@ -2,7 +2,7 @@
 
 require(__DIR__ . '/../vendor/autoload.php');
 
-class MyRelictumCache implements RPHPSDK\Relictum\Helpers\CacheHelperInterface
+class MyRelictumCache implements Relictum\RPHPSDK\Helpers\CacheHelperInterface
 {
 	// Get caching data for a specific requests
 	public function getCache(string $uri, string $method, array $params, array $config) {
@@ -32,30 +32,30 @@ class MyRelictumCache implements RPHPSDK\Relictum\Helpers\CacheHelperInterface
 }
 
 // Create configurator and set node uri
-$configurator = new RPHPSDK\Relictum\RequestConfigurator([
+$configurator = new Relictum\RPHPSDK\RequestConfigurator([
 	'config' => ['base_uri' => 'http://190.2.146.126/api/'],
 	'cache' => MyRelictumCache::class // Set your own query caching system
 ]);
 
-class MyTransactionDataObject extends RPHPSDK\Relictum\DataObjects\DefaultDataObject
+class MyTransactionDataObject extends Relictum\RPHPSDK\DataObjects\DefaultDataObject
 {
 	// Your own method that complements the functionality of the node data object
 	public function getFrom() {
 		// Getting and sending a new instance of a request in a data object
-		return \RPHPSDK\Relictum\Executor::getRequest($this)->getAccount($this->from_account)->current();
+		return \Relictum\RPHPSDK\Executor::getRequest($this)->getAccount($this->from_account)->current();
 	}
 	
 	// Your own method that complements the functionality of the node data object
 	public function getTo() {
 		// Getting and sending a new instance of a request in a data object
-		return \RPHPSDK\Relictum\Executor::getRequest($this)->getAccount($this->to_account)->current();
+		return \Relictum\RPHPSDK\Executor::getRequest($this)->getAccount($this->to_account)->current();
 	}
 }
 
-\RPHPSDK\Relictum\Executor::setDataObjectClass('transaction/([0-9]+|[a-zA-Z0-9]{64})', MyTransactionDataObject::class);
+\Relictum\RPHPSDK\Executor::setDataObjectClass('transaction/([0-9]+|[a-zA-Z0-9]{64})', MyTransactionDataObject::class);
 
 // Create a new request
-$request = new RPHPSDK\Relictum\Request($configurator);
+$request = new Relictum\RPHPSDK\Request($configurator);
 
 // Get a transaction
 $transaction = $request->getTransaction(1);

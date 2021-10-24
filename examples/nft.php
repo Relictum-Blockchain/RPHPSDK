@@ -3,10 +3,10 @@
 require(__DIR__ . '/../vendor/autoload.php');
 
 // Create configurator and set node uri
-$configurator = new RPHPSDK\Relictum\RequestConfigurator(['config' => ['base_uri' => 'http://190.2.146.126/api/']]);
+$configurator = new Relictum\RPHPSDK\RequestConfigurator(['config' => ['base_uri' => 'http://190.2.146.126/api/']]);
 
 // Create a new request
-$request = new RPHPSDK\Relictum\Request($configurator);
+$request = new Relictum\RPHPSDK\Request($configurator);
 
 // Get nft list with a specific owner
 $nft = $request->getNftList(['owner' => 'TilPMUibitrwRWbnUjmRNVjcjusxSXct']);

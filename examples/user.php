@@ -3,10 +3,10 @@
 require(__DIR__ . '/../vendor/autoload.php');
 
 // Create configurator and set node uri
-$configurator = new RPHPSDK\Relictum\RequestConfigurator(['config' => ['base_uri' => 'http://190.2.146.126/api/']]);
+$configurator = new Relictum\RPHPSDK\RequestConfigurator(['config' => ['base_uri' => 'http://190.2.146.126/api/']]);
 
 // Create a new request
-$request = new RPHPSDK\Relictum\Request($configurator);
+$request = new Relictum\RPHPSDK\Request($configurator);
 
 try {
 	// Create a new user
@@ -15,7 +15,7 @@ try {
 		'pass' => 'password12345'
 	]);
 }
-catch(RPHPSDK\Relictum\Exceptions\NodeRequestException $e) {
+catch(Relictum\RPHPSDK\Exceptions\NodeRequestException $e) {
 	// Catch exception and output error data
 	var_dump($e);
 }
@@ -27,7 +27,7 @@ $userLoginInfo = $request->doUserLogin([
 ]);
 
 // Set authorization for current user
-$configurator->setAuthorization(new \RPHPSDK\Relictum\Helpers\UserAuthorizationHelper($userLoginInfo->auth));
+$configurator->setAuthorization(new \Relictum\RPHPSDK\Helpers\UserAuthorizationHelper($userLoginInfo->auth));
 
 // Output user balance for specific token
 var_dump($request->getUserBalance(['symbol' => 'USDR']));

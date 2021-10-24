@@ -2,19 +2,19 @@
 
 require(__DIR__ . '/../vendor/autoload.php');
 
-$privateKeyPatch = __DIR__ . '/key.key';
+$privateKeyPath = __DIR__ . '/key.key';
 $privateKeyPassphrase = 'passphrase';
 
-$authorizationHelper = new \RPHPSDK\Relictum\Helpers\AuthorizationHelper($privateKeyPatch, $privateKeyPassphrase);
+$authorizationHelper = new \Relictum\RPHPSDK\Helpers\AuthorizationHelper($privateKeyPath, $privateKeyPassphrase);
 
 // Create configurator and set node uri
-$configurator = new RPHPSDK\Relictum\RequestConfigurator([
+$configurator = new Relictum\RPHPSDK\RequestConfigurator([
 	'config' => ['base_uri' => 'http://190.2.146.126/api/'],
 	'authorization' => $authorizationHelper
 ]);
 
 // Create a new request
-$request = new RPHPSDK\Relictum\Request($configurator);
+$request = new Relictum\RPHPSDK\Request($configurator);
 
 try {
 	// Create a new transfer
@@ -26,7 +26,7 @@ try {
 		]
 	]);
 }
-catch(RPHPSDK\Relictum\Exceptions\NodeRequestException $e) {
+catch(Relictum\RPHPSDK\Exceptions\NodeRequestException $e) {
 	// Catch exception and output error data
 	var_dump($e);
 }

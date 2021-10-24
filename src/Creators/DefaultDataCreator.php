@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum\Creators;
+namespace Relictum\RPHPSDK\Creators;
 
 class DefaultDataCreator extends DataObjectCreator
 {
@@ -11,7 +11,7 @@ class DefaultDataCreator extends DataObjectCreator
 	* @param ?string $class
 	* @return DefaultDataObject|DefaultCollectionDataObject|DataObjectInterface
 	*/
-	public function create(array $data, ?string $class = null) : \RPHPSDK\Relictum\DataObjects\DataObjectInterface
+	public function create(array $data, ?string $class = null) : \Relictum\RPHPSDK\DataObjects\DataObjectInterface
 	{
 		if($class !== null) {
 			return new $class($data);
@@ -29,10 +29,10 @@ class DefaultDataCreator extends DataObjectCreator
 			});
 		}
 		if( ! $isCollection) {
-			return new \RPHPSDK\Relictum\DataObjects\DefaultDataObject($data);
+			return new \Relictum\RPHPSDK\DataObjects\DefaultDataObject($data);
 		}
 		else {
-			return new \RPHPSDK\Relictum\DataObjects\DefaultCollectionDataObject($data);
+			return new \Relictum\RPHPSDK\DataObjects\DefaultCollectionDataObject($data);
 		}
 	}
 }

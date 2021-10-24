@@ -3,16 +3,16 @@
 require(__DIR__ . '/../vendor/autoload.php');
 
 // Create configurator and set node uri
-$configurator = new RPHPSDK\Relictum\RequestConfigurator(['config' => ['base_uri' => 'http://190.2.146.126/api/']]);
+$configurator = new Relictum\RPHPSDK\RequestConfigurator(['config' => ['base_uri' => 'http://190.2.146.126/api/']]);
 
 // Create a new request
-$request = new RPHPSDK\Relictum\Request($configurator);
+$request = new Relictum\RPHPSDK\Request($configurator);
 
 // Output node api version
 var_dump($request->getApiVersion()->version);
 
 // Create a new request
-$request = new RPHPSDK\Relictum\Request($configurator); 
+$request = new Relictum\RPHPSDK\Request($configurator); 
 // Get last transactions
 $transactions = $request->getTransactions(['count' => 7]);
 
@@ -26,19 +26,19 @@ foreach($transactions AS $transaction) {
 }
 
 // Create a new request
-$request = new RPHPSDK\Relictum\Request($configurator);
+$request = new Relictum\RPHPSDK\Request($configurator);
 // Get specific account data
 $account = $request->getAccount(1);
 // Output account data
 var_dump($account);
 
 // Create a new request
-$request = new RPHPSDK\Relictum\Request($configurator);
+$request = new Relictum\RPHPSDK\Request($configurator);
 try {
 	// Try to get transaction with wrong identity
 	$request->getTransaction(11111111);
 }
-catch(RPHPSDK\Relictum\Exceptions\NodeRequestException $e) {
+catch(Relictum\RPHPSDK\Exceptions\NodeRequestException $e) {
 	// Catch exception and output error data
 	var_dump($e);
 }

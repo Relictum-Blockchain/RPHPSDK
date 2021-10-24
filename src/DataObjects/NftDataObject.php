@@ -1,12 +1,12 @@
 <?php
 
-namespace RPHPSDK\Relictum\DataObjects;
+namespace Relictum\RPHPSDK\DataObjects;
 
 class NftDataObject extends DefaultDataObject
 {
 	public function saveFile(string $path, ?string $filename = null) : string
 	{
-		$nftFile = \RPHPSDK\Relictum\Executor::getRequest($this)->getNftFile($this->data_file_id);
+		$nftFile = \Relictum\RPHPSDK\Executor::getRequest($this)->getNftFile($this->data_file_id);
 		if($filename !== null) {
 			$path = $path . '/' . $filename . '.' . $this->data_file_extension;
 		}

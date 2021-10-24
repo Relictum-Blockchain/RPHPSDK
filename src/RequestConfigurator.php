@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum;
+namespace Relictum\RPHPSDK;
 
 /**
 * A PHP API for interacting with the Relictum
@@ -12,9 +12,9 @@ namespace RPHPSDK\Relictum;
 class RequestConfigurator
 {
 	protected $config = [
-		'authorization' => \RPHPSDK\Relictum\Helpers\AuthorizationHelper::class,
-		'cache' => \RPHPSDK\Relictum\Helpers\CacheHelper::class,
-		'transport' => \RPHPSDK\Relictum\Transports\GuzzleTransport::class,
+		'authorization' => \Relictum\RPHPSDK\Helpers\AuthorizationHelper::class,
+		'cache' => \Relictum\RPHPSDK\Helpers\CacheHelper::class,
+		'transport' => \Relictum\RPHPSDK\Transports\GuzzleTransport::class,
 	];
 	
 	/**
@@ -59,7 +59,7 @@ class RequestConfigurator
 	*
 	* @param AuthorizationHelperInterface $object
 	*/
-	public function setAuthorization(\RPHPSDK\Relictum\Helpers\AuthorizationHelperInterface $object)
+	public function setAuthorization(\Relictum\RPHPSDK\Helpers\AuthorizationHelperInterface $object)
 	{
 		$this->set('authorization', $class);
 	}
@@ -69,7 +69,7 @@ class RequestConfigurator
 	*
 	* @param CacheHelperInterface $object
 	*/
-	public function setCache(\RPHPSDK\Relictum\Helpers\CacheHelperInterface $object)
+	public function setCache(\Relictum\RPHPSDK\Helpers\CacheHelperInterface $object)
 	{
 		$this->set('cache', $class);
 	}
@@ -79,7 +79,7 @@ class RequestConfigurator
 	*
 	* @param RequestTransportInterface $object
 	*/
-	public function setTransport(\RPHPSDK\Relictum\Transports\RequestTransportInterface $object)
+	public function setTransport(\Relictum\RPHPSDK\Transports\RequestTransportInterface $object)
 	{
 		$this->set('transport', $class);
 	}

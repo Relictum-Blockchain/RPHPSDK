@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum;
+namespace Relictum\RPHPSDK;
 
 /**
 * A PHP API for interacting with the Relictum
@@ -37,7 +37,7 @@ class Request
 	*
 	* @param AuthorizationHelperInterface $authorization
 	*/
-	public function setAuthorization(\RPHPSDK\Relictum\Helpers\AuthorizationHelperInterface $authorization)
+	public function setAuthorization(\Relictum\RPHPSDK\Helpers\AuthorizationHelperInterface $authorization)
 	{
 		$this->authorization = $authorization;
 	}
@@ -47,7 +47,7 @@ class Request
 	*
 	* @param CacheHelperInterface $cache
 	*/
-	public function setCache(\RPHPSDK\Relictum\Helpers\CacheHelperInterface $cache)
+	public function setCache(\Relictum\RPHPSDK\Helpers\CacheHelperInterface $cache)
 	{
 		$this->cache = $cache;
 	}
@@ -57,7 +57,7 @@ class Request
 	*
 	* @param RequestTransportInterface $transport
 	*/
-	public function setTransport(\RPHPSDK\Relictum\Transports\RequestTransportInterface $transport)
+	public function setTransport(\Relictum\RPHPSDK\Transports\RequestTransportInterface $transport)
 	{
 		$this->transport = $transport;
 	}

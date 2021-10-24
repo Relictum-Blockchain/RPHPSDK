@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum\DataObjects;
+namespace Relictum\RPHPSDK\DataObjects;
 
 class AccountDataObject extends DefaultDataObject
 {
@@ -18,8 +18,8 @@ class AccountDataObject extends DefaultDataObject
 			$params['page'] = $page;
 		}
 		
-		$transactions = \RPHPSDK\Relictum\Executor::getRequest($this)->getAccount($this->account, $params)->current()->transactions;
-		$creator = new \RPHPSDK\Relictum\Creators\DefaultDataCreator;
+		$transactions = \Relictum\RPHPSDK\Executor::getRequest($this)->getAccount($this->account, $params)->current()->transactions;
+		$creator = new \Relictum\RPHPSDK\Creators\DefaultDataCreator;
 		return $creator->create(['transactions' => $transactions]);
 	}
 }

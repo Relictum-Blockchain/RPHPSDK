@@ -1,6 +1,6 @@
 <?php
 
-namespace RPHPSDK\Relictum\Transports;
+namespace Relictum\RPHPSDK\Transports;
 
 class GuzzleTransport implements RequestTransportInterface
 {
@@ -38,6 +38,6 @@ class GuzzleTransport implements RequestTransportInterface
 				];
 			}
 		}
-		throw new \RPHPSDK\Relictum\Exceptions\NetworkErrorException($response->getBody()->getContents());
+		throw new \Relictum\RPHPSDK\Exceptions\NetworkErrorException($response->getBody()->getContents());
 	}
 }
