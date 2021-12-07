@@ -15,10 +15,10 @@ A library for PHP that interacts with the relictum blockchain API
 ```php
 
 // Create configurator and set node uri
-$configurator = new RPHPSDK\Relictum\RequestConfigurator(['config' => ['base_uri' => 'http://190.2.146.126/api/']]);
+$configurator = new Relictum\RPHPSDK\RequestConfigurator(['config' => ['base_uri' => 'http://190.2.146.126/api/']]);
 
 // Create a new request
-$request = new RPHPSDK\Relictum\Request($configurator);
+$request = new Relictum\RPHPSDK\Request($configurator);
 
 // Output node api version
 var_dump($request->getApiVersion()->version);
