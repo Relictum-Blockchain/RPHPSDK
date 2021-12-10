@@ -30,7 +30,7 @@ class Executor
 	public static function execute(Request $request) : \Relictum\RPHPSDK\DataObjects\DataObjectInterface
 	{		
 		$data = $request->send();
-		if(isset($data['success']) && $data['success'] == 'false') {
+		if(isset($data['success']) && filter_var($data['success'], FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) == false) {
 			throw new \Relictum\RPHPSDK\Exceptions\NodeRequestException($data['error']);
 		}
 		$creator = self::findCreator($request);
