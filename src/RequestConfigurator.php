@@ -55,37 +55,37 @@ class RequestConfigurator
 	}
 
 	/**
-	* Set authorization class for Request Configurator
+	* Set authorization object for Request Configurator
 	*
 	* @param AuthorizationHelperInterface $object
 	*/
 	public function setAuthorization(\Relictum\RPHPSDK\Helpers\AuthorizationHelperInterface $object)
 	{
-		$this->set('authorization', $class);
+		$this->set('authorization', $object);
 	}
 
 	/**
-	* Set cache class for Request Configurator
+	* Set cache object for Request Configurator
 	*
 	* @param CacheHelperInterface $object
 	*/
 	public function setCache(\Relictum\RPHPSDK\Helpers\CacheHelperInterface $object)
 	{
-		$this->set('cache', $class);
+		$this->set('cache', $object);
 	}
 
 	/**
-	* Set transport class for Request Configurator
+	* Set transport object for Request Configurator
 	*
 	* @param RequestTransportInterface $object
 	*/
 	public function setTransport(\Relictum\RPHPSDK\Transports\RequestTransportInterface $object)
 	{
-		$this->set('transport', $class);
+		$this->set('transport', $object);
 	}
 	
 	protected function set(string $configParam, object $object)
 	{
-		$this->config[$configParam] = $class;
+		$this->config[$configParam] = $object;
 	}
 }
