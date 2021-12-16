@@ -1,6 +1,6 @@
 <?php
 
-namespace \Relictum\RPHPSDK;
+namespace Relictum\RPHPSDK;
 
 /**
 * A PHP API for interacting with the Relictum

@@ -1,6 +1,6 @@
 <?php
 
-namespace \Relictum\RPHPSDK\DataObjects;
+namespace Relictum\RPHPSDK\DataObjects;
 
 interface CollectionDataObjectInterface extends DataObjectInterface, \Iterator, \Traversable, \Countable, \JsonSerializable
 {
