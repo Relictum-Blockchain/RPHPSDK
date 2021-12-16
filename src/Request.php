@@ -1,6 +1,6 @@
 <?php
 
-namespace Relictum\RPHPSDK;
+namespace \Relictum\RPHPSDK;
 
 /**
 * A PHP API for interacting with the Relictum
@@ -102,7 +102,7 @@ class Request
 	* Get accounts collection info from relictum node
 	*
 	* @param int|string $identity
-	* @return СollectionDataObjectInterface
+	* @return CollectionDataObjectInterface
 	* @throws NetworkErrorException
 	* @throws NodeRequestException
 	*/
@@ -129,7 +129,7 @@ class Request
 	* Get transactions collection info from relictum node
 	*
 	* @param array $params
-	* @return СollectionDataObjectInterface
+	* @return CollectionDataObjectInterface
 	* @throws NetworkErrorException
 	* @throws NodeRequestException
 	*/
@@ -141,7 +141,7 @@ class Request
 	/**
 	* Get chains collection info from relictum node
 	*
-	* @return СollectionDataObjectInterface
+	* @return CollectionDataObjectInterface
 	* @throws NetworkErrorException
 	* @throws NodeRequestException
 	*/
@@ -155,7 +155,7 @@ class Request
 	*
 	* @param string $chain
 	* @param array $params
-	* @return СollectionDataObjectInterface
+	* @return CollectionDataObjectInterface
 	* @throws NetworkErrorException
 	* @throws NodeRequestException
 	*/
@@ -169,7 +169,7 @@ class Request
 	*
 	* @param string $contract
 	* @param array $params
-	* @return СollectionDataObjectInterface
+	* @return CollectionDataObjectInterface
 	* @throws NetworkErrorException
 	* @throws NodeRequestException
 	*/
@@ -182,7 +182,7 @@ class Request
 	* Get royalty info from relictum node
 	*
 	* @param array $params
-	* @return СollectionDataObjectInterface
+	* @return CollectionDataObjectInterface
 	* @throws NetworkErrorException
 	* @throws NodeRequestException
 	*/
@@ -223,7 +223,7 @@ class Request
 	*
 	* @param string $contract
 	* @param array $params
-	* @return СollectionDataObjectInterface
+	* @return CollectionDataObjectInterface
 	* @throws NetworkErrorException
 	* @throws NodeRequestException
 	*/
@@ -288,7 +288,7 @@ class Request
 	* Get nft list from relictum node
 	*
 	* @param array $params
-	* @return СollectionDataObjectInterface
+	* @return CollectionDataObjectInterface
 	* @throws NetworkErrorException
 	* @throws NodeRequestException
 	*/

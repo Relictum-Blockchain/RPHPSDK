@@ -2,7 +2,7 @@
 
 namespace Relictum\RPHPSDK\DataObjects;
 
-trait СollectionDataObjectTrait
+trait CollectionDataObjectTrait
 {
 	protected $objects = [];
 	protected $position = 0;
@@ -69,7 +69,7 @@ trait СollectionDataObjectTrait
 		$this->objects = [];
 	}
 	
-	public function copy(): СollectionDataObjectInterface
+	public function copy(): CollectionDataObjectInterface
 	{
 		$newClollection = clone $this;
 		return $newClollection;

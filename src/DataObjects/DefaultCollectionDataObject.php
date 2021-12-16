@@ -2,9 +2,9 @@
 
 namespace Relictum\RPHPSDK\DataObjects;
 
-class DefaultCollectionDataObject implements СollectionDataObjectInterface
+class DefaultCollectionDataObject implements CollectionDataObjectInterface
 {
-	use СollectionDataObjectTrait;
+	use CollectionDataObjectTrait;
 	
 	protected $request;
 	
