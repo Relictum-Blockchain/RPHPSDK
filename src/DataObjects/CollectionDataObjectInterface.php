@@ -2,7 +2,7 @@
 
 namespace Relictum\RPHPSDK\DataObjects;
 
-interface CollectionDataObjectInterface extends DataObjectInterface, \Iterator, \Traversable, \Countable, \JsonSerializable
+interface CollectionDataObjectInterface extends DataObjectInterface, \Iterator, \Countable, \JsonSerializable
 {
 	public function clear(): void;
 	public function copy(): CollectionDataObjectInterface;

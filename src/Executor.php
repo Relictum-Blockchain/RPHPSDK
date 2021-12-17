@@ -15,7 +15,8 @@ class Executor
 		'creators' => [],
 		'classess' => [
 			'account/([0-9]+|[a-zA-Z0-9]{32})' => \Relictum\RPHPSDK\DataObjects\AccountCollectionDataObject::class,
-			'nft/list' => \Relictum\RPHPSDK\DataObjects\NftListCollectionDataObject::class
+			'nft/list' => \Relictum\RPHPSDK\DataObjects\NftListCollectionDataObject::class,
+			'user/transfer' => \Relictum\RPHPSDK\DataObjects\UserTransferDataObject::class,
 		],
 	];
 	

@@ -233,7 +233,20 @@ class Request
 	}
 	
 	/**
-	* Register new user with relictum node
+	* Get version of webuser api from relictum node
+	*
+	* @param array $params
+	* @return DataObjectInterface
+	* @throws NetworkErrorException
+	* @throws NodeRequestException
+	*/
+	public function getUserVersion(array $params = [])
+	{
+		return $this->execute('user/version', 'POST', $params);
+	}
+	
+	/**
+	* Register new user with relictum node webuser api
 	*
 	* @param array $params
 	* @return DataObjectInterface
@@ -246,7 +259,7 @@ class Request
 	}
 	
 	/**
-	* Login user and get user auth data with relictum node
+	* Login user and get user auth data with relictum node webuser api 
 	*
 	* @param array $params
 	* @return DataObjectInterface
@@ -259,7 +272,20 @@ class Request
 	}
 	
 	/**
-	* Get user balance info from relictum node
+	* Get info about user from relictum node webuser api
+	*
+	* @param array $params
+	* @return DataObjectInterface
+	* @throws NetworkErrorException
+	* @throws NodeRequestException
+	*/
+	public function getUserInfo(array $params = [])
+	{
+		return $this->execute('user/getinfo', 'POST', $params);
+	}
+	
+	/**
+	* Get user balance info from relictum node webuser api
 	*
 	* @param array $params
 	* @return DataObjectInterface
@@ -272,7 +298,20 @@ class Request
 	}
 	
 	/**
-	* Execute user transfer with relictum node
+	* Get user private key from relictum node webuser api
+	*
+	* @param array $params
+	* @return DataObjectInterface
+	* @throws NetworkErrorException
+	* @throws NodeRequestException
+	*/
+	public function getUserPkey(array $params = [])
+	{
+		return $this->execute('user/pkey', 'POST', $params);
+	}
+	
+	/**
+	* Execute user transfer with relictum node webuser api 
 	*
 	* @param array $params
 	* @return DataObjectInterface
@@ -284,6 +323,19 @@ class Request
 		return $this->execute('user/transfer', 'POST', $params);
 	}
 	
+	
+	/**
+	* Get status of transfer, created by relictum node webuser api 
+	*
+	* @param array $params
+	* @return DataObjectInterface
+	* @throws NetworkErrorException
+	* @throws NodeRequestException
+	*/
+	public function getUserTransferStatus(array $params)
+	{
+		return $this->execute('user/transfer/status', 'POST', $params);
+	}
 	/**
 	* Get nft list from relictum node
 	*

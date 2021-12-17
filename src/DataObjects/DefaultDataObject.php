@@ -10,8 +10,11 @@ class DefaultDataObject implements DataObjectInterface
 	public function __construct(array $data)
 	{
 		foreach($data AS $key=>$val) {
-			if( ! property_exists($this, $key)) {
+			if( ! is_array($val)) {
 				$this->{$key} = $val;
+			}
+			else {
+				$this->{$key} = new DefaultDataObjectArrayField($val);
 			}
 		}
 		return $this;
