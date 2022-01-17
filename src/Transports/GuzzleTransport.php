@@ -23,8 +23,7 @@ class GuzzleTransport implements RequestTransportInterface
 			$method,
 			$uri,
 			[
-				($method != 'POST' ? \GuzzleHttp\RequestOptions::QUERY : \GuzzleHttp\RequestOptions::JSON) => $params,
-				'headers' => ( ! empty($config['headers']) ? $config['headers'] : [])
+				($method != 'POST' ? \GuzzleHttp\RequestOptions::QUERY : \GuzzleHttp\RequestOptions::JSON) => $params
 			]);
 		
 		if ($response->getStatusCode() == 200) {

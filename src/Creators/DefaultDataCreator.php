@@ -20,13 +20,15 @@ class DefaultDataCreator extends DataObjectCreator
 		$isCollection = false;
 		if(count(array_keys($data)) == 1) {
 			$dataArray = current($data);
-			$dataKeys = array_keys($dataArray);
-			$isCollection = true;
-			array_walk($dataKeys, function($el) use (&$isCollection) {
-				if( ! is_numeric($el)) {
-					$isCollection = false;
-				}
-			});
+			if(is_array($dataArray)) {
+				$dataKeys = array_keys($dataArray);
+				$isCollection = true;
+				array_walk($dataKeys, function($el) use (&$isCollection) {
+					if( ! is_numeric($el)) {
+						$isCollection = false;
+					}
+				});
+			}
 		}
 		if( ! $isCollection) {
 			return new \Relictum\RPHPSDK\DataObjects\DefaultDataObject($data);

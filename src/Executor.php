@@ -12,7 +12,9 @@ namespace Relictum\RPHPSDK;
 class Executor
 {
 	protected static $config = [
-		'creators' => [],
+		'creators' => [
+			'chains/([a-z\-\_]+)' => \Relictum\RPHPSDK\Creators\ChainDataCreator::class,
+		],
 		'classess' => [
 			'account/([0-9]+|[a-zA-Z0-9]{32})' => \Relictum\RPHPSDK\DataObjects\AccountCollectionDataObject::class,
 			'nft/list' => \Relictum\RPHPSDK\DataObjects\NftListCollectionDataObject::class,
@@ -35,6 +37,7 @@ class Executor
 			throw new \Relictum\RPHPSDK\Exceptions\NodeRequestException($data['error']);
 		}
 		$creator = self::findCreator($request);
+		
 		$dataObject = $creator->create($data, self::findClass($request));
 		$dataObject->setRequest($request);
 		return $dataObject;
@@ -106,7 +109,7 @@ class Executor
 			$className = str_replace('-', ' ', $request->uri);
 			$className = str_replace('/', '\ ', $className);
 			$className = ucwords($className);
-			$className = '\\RPHPSDK\\Relictum\\Creators\\' . str_replace(' ', '', $className) . 'DataCreater';
+			$className = 'Relictum\\RPHPSDK\\Creators\\' . str_replace(' ', '', $className) . 'DataCreator';
 		}
 		
 		if(is_object($className)) {
@@ -114,7 +117,7 @@ class Executor
 		}
 		
 		if(class_exists($className)) {
-			$creator = new $className;
+			return new $className;
 		}
 		else {
 			return new \Relictum\RPHPSDK\Creators\DefaultDataCreator;
@@ -143,7 +146,7 @@ class Executor
 			return $className;
 		}
 		else {
-			return \Relictum\RPHPSDK\DataObjects\DefaultDataObject::class;
+			return null;
 		}
 	}
 }
