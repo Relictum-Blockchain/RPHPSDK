@@ -32,6 +32,32 @@ $account = $request->getAccount(1);
 // Output account data
 var_dump($account);
 
+// Get last transactions by account
+$transactions = $request->getAccount(1, ['type' => 'transactions', 'token' => 'USDR']);
+// Output account data
+foreach($transactions AS $transaction) {
+	var_dump($transaction);
+}
+
+// Get last account transactions
+$transactions = $request->getAccount(1, ['type' => 'transactions']);
+foreach($transactions AS $transaction) {
+	// Output transaction data
+	var_dump($transaction);
+}
+
+//Get account transactions, for a specific token and page
+$transactions = $request->getAccount(1, [
+	'type' => 'transactions',
+	'token' => 'USDR',
+	'page' => 2,
+	'count' => 3
+]);
+foreach($transactions AS $transaction) {
+	// Output transaction data
+	var_dump($transaction);
+}
+
 // Create a new request
 $request = new Relictum\RPHPSDK\Request($configurator);
 try {
